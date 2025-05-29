@@ -45,6 +45,16 @@ public class UserRegistration {
         return passwordRuleTwo.matches("^(?=.*[A-Z])[^\\s]{8,}$");
     }
 
+    // Method to validate password as per Rule-3 USE CASE-07
+    public static boolean validateRuleThree(String passwordRuleThree) {
+        // Password must:
+        // - Have at least one number
+        // - Have at least one uppercase letter
+        // - Have no spaces
+        // - Be at least 8 characters long
+        return passwordRuleThree.matches("(?=.*[0-9])(?=.*[A-Z])[^\\s]{8,}$");
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);  // Create scanner object to take user input
@@ -79,6 +89,11 @@ public class UserRegistration {
         System.out.println("Enter password");
         String passwordRuleTwo=scanner.nextLine();
         System.out.println("Password validate "+validateRuleTwo(passwordRuleTwo));
+
+        // Taking the password from the user  UseCase 07
+        System.out.println("Enter password");
+        String passwordRuleThree=scanner.nextLine();
+        System.out.println("Email validate "+validateRuleThree(passwordRuleThree));
 
     }
 }
