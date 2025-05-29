@@ -81,4 +81,18 @@ public class UserRegistrationTesting {
         assertFalse(result);
     }
 
+    // UC6: Password Rule 2
+    @Test
+    public void testValidRuleTwo() {
+        boolean result = UserRegistration.validateRuleTwo("Password1");
+        System.out.println(result ? "PASS: Has uppercase and 8+ characters with no spaces" : "FAIL: Password should be valid but was not");
+        assertTrue(result);
+    }
+    @Test
+    public void testInvalidRuleTwo() {
+        boolean result = UserRegistration.validateRuleTwo("password1");
+        System.out.println(!result ? "PASS: No uppercase letter present" : "FAIL: Password should be invalid but was accepted");
+        assertFalse(result);
+    }
+
 }
