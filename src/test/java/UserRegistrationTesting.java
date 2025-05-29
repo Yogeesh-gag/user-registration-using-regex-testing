@@ -39,4 +39,17 @@ public class UserRegistrationTesting {
         assertFalse(result);
     }
 
+    // UC3: Email Validation
+    @Test
+    public void testValidEmail() {
+        boolean result = UserRegistration.validateEmail("pavan.0628@gmail.com");
+        System.out.println(result ? "PASS: Email format is correct" : "FAIL: Email should be valid but was not");
+        assertTrue(result);
+    }
+    @Test
+    public void testInvalidEmail() {
+        boolean result = UserRegistration.validateEmail("pavan.0628@gmail");
+        System.out.println(!result ? "PASS: Missing domain extension in email" : "FAIL: Email should be invalid but was accepted");
+        assertFalse(result);
+    }
 }
