@@ -26,6 +26,13 @@ public class UserRegistration {
         // return email.matches("^[a-zA-Z0-9]+([._%+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z]{2,})+$");
     }
 
+    // Method to validate mobile number USE CASE-04
+    public static boolean validateMobileNumber(String mobileNumber) {
+        // Mobile number must start with country code (at least 2 digits), followed by space and 10-digit number
+        // Example: 91 9876543210
+        return mobileNumber.matches("^[0-9]{2,}\\s[0-9]{10}");
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);  // Create scanner object to take user input
@@ -45,5 +52,11 @@ public class UserRegistration {
         System.out.println("Enter email");
         String email = scanner.nextLine();
         System.out.println("Email valid: " + validateEmail(email));
+
+        // Take phone number form the user  UseCase 04
+        System.out.println("Enter mobile number");
+        String mobileNUmber=scanner.nextLine();
+        System.out.println("Mobile Number validate "+validateMobileNumber(mobileNUmber));
+
     }
 }
