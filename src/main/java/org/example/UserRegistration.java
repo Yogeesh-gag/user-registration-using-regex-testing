@@ -55,6 +55,18 @@ public class UserRegistration {
         return passwordRuleThree.matches("(?=.*[0-9])(?=.*[A-Z])[^\\s]{8,}$");
     }
 
+    // Method to validate password as per Rule-4 USE CASE-08
+    public static boolean validateRuleFour(String passwordRuleFour) {
+        // This regex validates the following rules:
+        // ^                         → Start of the string
+        // (?=.*[A-Z])               → Must contain at least one uppercase letter
+        // (?=.*[0-9])               → Must contain at least one digit
+        // [^\\s]                    → First character should not be whitespace (but this part may be unnecessary here)
+        // (?=^[^\\W_]*[\\W_][^\\W_]*$) → Ensures exactly one special character (non-alphanumeric or underscore)
+        // .{8,}$                    → Total length must be at least 8 characters
+        return passwordRuleFour.matches("^(?=.[A-Z])(?=.[0-9])(?=^[^\\W_\\s][\\W_][^\\W_\\s]$)\\S{8,}$");
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);  // Create scanner object to take user input
@@ -94,6 +106,11 @@ public class UserRegistration {
         System.out.println("Enter password");
         String passwordRuleThree=scanner.nextLine();
         System.out.println("Email validate "+validateRuleThree(passwordRuleThree));
+
+        // Taking the password from the user  UseCase 08
+        System.out.println("Enter password");
+        String passwordRuleFour=scanner.nextLine();
+        System.out.println("Email validate "+validateRuleFour(passwordRuleFour));
 
     }
 }

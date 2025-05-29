@@ -109,6 +109,22 @@ public class UserRegistrationTesting {
         assertFalse(result);
     }
 
+    // UC8: Password Rule 4
+    @Test
+    public void testValidRuleFour() {
+        boolean result = UserRegistration.validateRuleFour("Passw0rd!");
+        System.out.println(result ? "PASS: Has uppercase, digit, exactly one special char, 8+ characters, and no spaces" : "FAIL: Password should be valid but was not");
+        assertTrue(result);
+    }
+    @Test
+    public void testInvalidRuleFour() {
+        boolean result1 = UserRegistration.validateRuleFour("Passw0rd!!");
+        System.out.println(!result1 ? "PASS: Contains more than one special character" : "FAIL: Password should be invalid but was accepted");
+        assertFalse(result1);
 
+        boolean result2 = UserRegistration.validateRuleFour("password1!");
+        System.out.println(!result2 ? "PASS: No uppercase letter present" : "FAIL: Password should be invalid but was accepted");
+        assertFalse(result2);
+    }
 
 }
