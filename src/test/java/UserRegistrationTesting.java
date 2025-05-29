@@ -95,4 +95,20 @@ public class UserRegistrationTesting {
         assertFalse(result);
     }
 
+    // UC7: Password Rule 3
+    @Test
+    public void testValidRuleThree() {
+        boolean result = UserRegistration.validateRuleThree("Password1");
+        System.out.println(result ? "PASS: Has digit, uppercase, 8+ characters, and no spaces" : "FAIL: Password should be valid but was not");
+        assertTrue(result);
+    }
+    @Test
+    public void testInvalidRuleThree() {
+        boolean result = UserRegistration.validateRuleThree("Password");
+        System.out.println(!result ? "PASS: No digit present in the password" : "FAIL: Password should be invalid but was accepted");
+        assertFalse(result);
+    }
+
+
+
 }
