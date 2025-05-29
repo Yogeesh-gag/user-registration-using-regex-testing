@@ -52,4 +52,21 @@ public class UserRegistrationTesting {
         System.out.println(!result ? "PASS: Missing domain extension in email" : "FAIL: Email should be invalid but was accepted");
         assertFalse(result);
     }
+
+    // UC4: Mobile Number Validation
+    @Test
+    public void testValidMobileNumber() {
+        boolean result = UserRegistration.validateMobileNumber("91 9876543210");
+        System.out.println(result ? "PASS: Valid country code, space, and 10-digit number" : "FAIL: Mobile number should be valid but was not");
+        assertTrue(result);
+    }
+    @Test
+    public void testInvalidMobileNumber() {
+        boolean result = UserRegistration.validateMobileNumber("919876543210");
+        System.out.println(!result ? "PASS: Missing space between country code and number" : "FAIL: Mobile number should be invalid but was accepted");
+        assertFalse(result);
+    }
+
+
+
 }
