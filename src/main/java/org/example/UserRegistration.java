@@ -10,6 +10,14 @@ public class UserRegistration {
         return firstName.matches("^[A-Z][a-zA-Z]{2,}$");
     }
 
+
+    // Method to validate the second name (last name) USE CASE-02
+    public static boolean validateSecondName(String secondName) {
+        // Same rule: must start with a capital and have at least 3 letters
+        return secondName.matches("^[A-Z][a-zA-Z]{2,}$");
+    }
+
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);  // Create scanner object to take user input
@@ -19,5 +27,11 @@ public class UserRegistration {
         System.out.println("Enter First Name");
         String firstName = scanner.nextLine();
         System.out.println("First name valid: " + validateFirstName(firstName));
+
+
+        //Taking the user second name from the user UseCase 02
+        System.out.println("Enter Second Name");
+        String secondName = scanner.nextLine();
+        System.out.println("Second name valid: " + validateSecondName(secondName));
     }
 }

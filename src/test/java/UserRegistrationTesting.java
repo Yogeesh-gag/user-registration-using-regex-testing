@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UserRegistrationTesting {
+
     // UC1: First Name Validation
     @Test
     public void testValidFirstName() {
@@ -24,6 +25,18 @@ public class UserRegistrationTesting {
         assertFalse(result2);
     }
 
-
+    // UC2: Second Name Validation
+    @Test
+    public void testValidSecondName() {
+        boolean result = UserRegistration.validateSecondName("Vinay");
+        System.out.println(result ? "PASS: 'Vinay' starts with capital letter and has more than 2 characters" : "FAIL: 'Vinay' should be valid but was not");
+        assertTrue(result);
+    }
+    @Test
+    public void testInvalidSecondName() {
+        boolean result = UserRegistration.validateSecondName("vi");
+        System.out.println(!result ? "PASS: 'vi' has less than 3 characters and/or doesn't start with capital letter" : "FAIL: 'vi' should be invalid but was accepted");
+        assertFalse(result);
+    }
 
 }
