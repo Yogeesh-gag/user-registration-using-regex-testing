@@ -33,6 +33,12 @@ public class UserRegistration {
         return mobileNumber.matches("^[0-9]{2,}\\s[0-9]{10}");
     }
 
+    // Method to validate password as per Rule-1 USE CASE-05
+    public static boolean validateRuleOne(String passwordRuleOne) {
+        // Password must have at least 8 characters and no whitespace
+        return passwordRuleOne.matches("^[^\\s]{8,}");
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);  // Create scanner object to take user input
@@ -57,6 +63,11 @@ public class UserRegistration {
         System.out.println("Enter mobile number");
         String mobileNUmber=scanner.nextLine();
         System.out.println("Mobile Number validate "+validateMobileNumber(mobileNUmber));
+
+        // Taking the password from the user  UseCase 05
+        System.out.println("Enter password");
+        String passwordRuleOne=scanner.nextLine();
+        System.out.println("Password validate "+validateRuleOne(passwordRuleOne));
 
     }
 }

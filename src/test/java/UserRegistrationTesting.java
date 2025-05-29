@@ -67,6 +67,18 @@ public class UserRegistrationTesting {
         assertFalse(result);
     }
 
-
+    // UC5: Password Rule 1
+    @Test
+    public void testValidRuleOne() {
+        boolean result = UserRegistration.validateRuleOne("password1");
+        System.out.println(result ? "PASS: 8+ characters and no spaces" : "FAIL: Password should be valid but was not");
+        assertTrue(result);
+    }
+    @Test
+    public void testInvalidRuleOne() {
+        boolean result = UserRegistration.validateRuleOne("pass");
+        System.out.println(!result ? "PASS: Less than 8 characters" : "FAIL: Password should be invalid but was accepted");
+        assertFalse(result);
+    }
 
 }
